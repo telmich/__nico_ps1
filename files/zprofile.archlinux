@@ -1,0 +1,5 @@
+# Based on Archlinux default, Nico Schottelius, 2011-12-21
+
+emulate sh -c 'source /etc/profile'
+
+export PS1='[%T] %B%m%b:%c%# '

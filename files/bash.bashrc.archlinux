@@ -1,0 +1,28 @@
+# 2011-12-21, Nico Schottelius, based on Archlinux default
+
+
+#
+# /etc/bash.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Use fancy PS1 instead of standard
+PS1='[\t] \[\033[1m\]\h\[\033[0m\]:\w\$ '
+PS2='> '
+PS3='> '
+PS4='+ '
+
+case ${TERM} in
+  xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+                                                        
+    ;;
+  screen)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+    ;;
+esac
+
+[ -r /etc/bash_completion   ] && . /etc/bash_completion
+

@@ -1,0 +1,17 @@
+os=$(cat "$__global/explorer/os")
+case "$os" in
+    archlinux)
+        __file /etc/bash.bashrc --source "$__type/files/bash.bashrc.archlinux" \
+            --mode 0644
+    ;;
+
+    debian|ubuntu)
+        __file /etc/profile.d/nicopsi1 --source "$__type/files/profile.d-ps1.sh" \
+            --mode 0644
+
+    ;;
+
+    *)
+        echo "Not supported, $os." >&2
+        exit 1
+esac
