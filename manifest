@@ -6,7 +6,7 @@ case "$os" in
     ;;
 
     debian|ubuntu)
-        __file /etc/profile.d/nicopsi1 --source "$__type/files/profile.d-ps1.sh" \
+        __file /etc/profile.d/nicopsi1.sh --source "$__type/files/profile.d-ps1.sh" \
             --mode 0644
 
     ;;
