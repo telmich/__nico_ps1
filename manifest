@@ -5,7 +5,7 @@ case "$os" in
             --mode 0644
     ;;
 
-    debian|ubuntu|centos|devuan)
+    debian|ubuntu|centos|devuan|suse)
         __file /etc/profile.d/nico-psi1.sh --source "$__type/files/profile.d-ps1.sh" \
             --mode 0644
 
